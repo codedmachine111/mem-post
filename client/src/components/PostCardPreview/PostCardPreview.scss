@@ -1,0 +1,52 @@
+.post-card-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    width: 30%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(
+      118.13deg,
+      #26282a -9.55%,
+      rgba(45, 48, 54, 0) 106.05%
+    );
+    margin: 0.5rem 0;
+    cursor: pointer;
+  
+    .post-card-preview-title {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      background: none;
+      text-transform: capitalize;
+      text-align: left;
+      font-family: "DM Sans", sans-serif;
+    }
+    .post-card-preview-desc {
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .post-card-preview-username{
+        opacity: 0.5;
+        color: #333;
+    }
+  
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .post-card-preview-container {
+      width: 55%;
+      margin: 0.5rem 0;
+    }
+  } 

@@ -1,0 +1,18 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  padding: 0.6rem;
+  border-radius: 7px;
+  background-color: transparent;
+  border: 1px solid #1db954;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+  margin: 0.5rem 0;
+}
+
+.btn:hover {
+  background-color: #1db954;
+  color: #fff;
+}

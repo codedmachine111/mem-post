@@ -1,0 +1,56 @@
+.post-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 85vh;
+  padding: 1rem 2rem;
+  gap: 5%;
+
+  .post-display-container {
+    border-radius: 10px;
+    border: 2px solid #e6e6e6;
+    width: 60%;
+    height: 100%;
+    padding: 1rem;
+  }
+  .post-comments-section {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 1rem 2rem;
+    
+    .post-comments-container {
+      width: 100%;
+      height: 50vh;
+      .post-comments-holder{
+        width: 100%;
+        height: 100%;
+        padding: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        justify-content: flex-start;
+        border: 2px solid #ccc;
+        overflow: scroll;
+      }
+    }
+    .post-create-comment-section{
+      width: 90%;
+      height: 100%;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin: 0.5rem 0;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+
+      h2{
+        padding: 0 0.5rem;
+      }
+    }
+  }
+}
