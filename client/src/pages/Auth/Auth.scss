@@ -1,0 +1,44 @@
+.auth-page-container {
+  width: 100%;
+  min-height: 85vh;
+  height: auto;
+
+  .auth-page-content {
+    width: 100%;
+    min-height: 85vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .auth-login-section, .auth-signin-section {
+      width: 50%;
+      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      form{
+        width:70%;
+      }
+
+      h2{
+        font-size: 2.4rem;
+        font-weight: 600;
+        width: 100%;
+        color: #000;
+      }
+      p{
+        font-size: 0.9rem;
+        width: 100%;
+        font-weight: 400;
+        text-align: left;
+        opacity: 0.5;
+        color: #000;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

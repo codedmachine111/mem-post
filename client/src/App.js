@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { CreatePost } from './pages/CreatePost/CreatePost';
 import { PostPage } from './pages/PostPage/PostPage';
+import {Auth} from './pages/Auth/Auth';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/create" element={<CreatePost/>}/>
           <Route path="/post/:id" element={<PostPage/>}/>
+          <Route path="/auth" element={<Auth/>}/>
         </Routes>
       </Router>
     </div>

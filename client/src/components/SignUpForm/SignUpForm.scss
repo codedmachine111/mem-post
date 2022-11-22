@@ -1,0 +1,23 @@
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+
+    #signup-input{
+        width: 100%;
+        border: none;
+        padding: 0.5rem;
+        border-bottom: 1px solid #ccc;
+
+        &:focus{
+            outline: none;
+            border-bottom: #1db954 2px solid;
+            transition: 0.2s ease;
+        }
+    }
+
+    .btn{
+        width: 50%;
+    }
+}
