@@ -2,8 +2,13 @@ import "./LoginForm.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { Button } from "../../components/Button/Button";
+import { UserContext } from "../../App";
+import { useContext } from "react";
 
 export const LoginForm = () => {
+
+  const { setCurrentUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     document.getElementsByClassName("login-form")[0].reset();
   };
@@ -20,9 +25,9 @@ export const LoginForm = () => {
 
     axios.post(`http://localhost:3001/auth/login`, userObject).then((res) => {
       alert(res.data.message);
-      console.log(res.data);
       if (res.data.message === "Login Successful") {
         resetFormFields();
+        setCurrentUser(res.data);
         sessionStorage.setItem("token", res.data.accessToken);
       }
     });

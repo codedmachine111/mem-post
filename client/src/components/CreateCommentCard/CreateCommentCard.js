@@ -15,16 +15,13 @@ export const CreateCommentCard = (props) => {
       commentText: values.commentText,
       postId: props.postId,
     };
-    axios.post(`http://localhost:3001/comments`, commentObject).then((res) => {
-      console.log(res.data);
-      resetFormFields();
+    
+    axios.post(`http://localhost:3001/comments`, commentObject, {headers :{
+        accessToken: sessionStorage.getItem("token")
+    }}).then((res) => {
+        console.log(res.data);
+        resetFormFields();
     });
-    // axios.post(`http://localhost:3001/comments`, commentObject, {headers :{
-    //     accessToken: sessionStorage.getItem("token")
-    // }}).then((res) => {
-    //     console.log(res.data);
-    //     resetFormFields();
-    // });
   };
 
   return (

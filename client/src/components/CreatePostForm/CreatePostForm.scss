@@ -1,16 +1,20 @@
 .create-post-form{
     width: 50%;
     border: 2px solid #1b1b1b;
-    padding: 1rem;
-
+    
     #input-create-post{
         width: 100%;
         padding: 0.5rem;
         border:none;
         border-bottom: 1px solid #ccc;
-        border-radius: 5px;
         resize: none;
         margin: 1rem 0;
+        color: #fff;
         outline: none;
+    }
+    .btn{
+        width: 50%;
+        color: #fff;
+        margin: 1rem 0;
     }
 }

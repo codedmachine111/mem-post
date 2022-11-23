@@ -13,7 +13,7 @@ router.get("/:postId", async(req,res)=>{
 //     res.json(comment);
 // });
 
-router.post("/", async(req,res)=>{
+router.post("/",validateToken, async(req,res)=>{
     const comment = await Comments.create(req.body);
     res.json(comment);
 });

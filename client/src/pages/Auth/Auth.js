@@ -11,7 +11,7 @@ export const Auth = () => {
           <p>Login with username and password</p>
           <LoginForm />
         </div>
-        <div className="auth-signin-section">
+        <div className="auth-signup-section">
           <h2>Don't have an account?</h2>
           <p>Signup with username and password</p>
           <SignUpForm />

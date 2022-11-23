@@ -1,10 +1,10 @@
 const {verify} = require("jsonwebtoken");
 
 const validateToken = (req,res,next)=>{
-    const accessToken = req.headers("accessToken");
+    const accessToken = req.header("accessToken");
 
     if(!accessToken){
-        return res.json({message: "Access Denied"});
+        return res.json({message: "User not Logged in"});
     }
 
     try{
@@ -12,8 +12,8 @@ const validateToken = (req,res,next)=>{
         if(validToken){
             return next();
         }
-    }catch(err){
-        return res.json({message: "err"});
+    }catch(err) {
+        return res.json({message: err});
     }
 }
 

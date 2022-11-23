@@ -1,22 +1,33 @@
-import './App.scss';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { Home } from './pages/Home/Home';
-import { CreatePost } from './pages/CreatePost/CreatePost';
-import { PostPage } from './pages/PostPage/PostPage';
-import {Auth} from './pages/Auth/Auth';
+import "./App.scss";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home/Home";
+import { CreatePost } from "./pages/CreatePost/CreatePost";
+import { PostPage } from "./pages/PostPage/PostPage";
+import { Auth } from "./pages/Auth/Auth";
+import { createContext } from "react";
+import { useState } from "react";
+import { Navbar } from "./components/Navbar/Navbar";
+
+export const UserContext = createContext({
+  currentUser: null,
+});
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/create" element={<CreatePost/>}/>
-          <Route path="/post/:id" element={<PostPage/>}/>
-          <Route path="/auth" element={<Auth/>}/>
-        </Routes>
-      </Router>
+      <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create" element={<CreatePost />} />
+            <Route path="/post/:id" element={<PostPage />} />
+            <Route path="/auth" element={<Auth />} />
+          </Routes>
+        </Router>
+      </UserContext.Provider>
     </div>
   );
 }
