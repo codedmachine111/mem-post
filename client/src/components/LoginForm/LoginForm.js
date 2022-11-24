@@ -4,10 +4,12 @@ import axios from "axios";
 import { Button } from "../../components/Button/Button";
 import { UserContext } from "../../App";
 import { useContext } from "react";
+import {useNavigate} from "react-router-dom";
 
 export const LoginForm = () => {
 
-  const { setCurrentUser } = useContext(UserContext);
+  const { setAuthUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     document.getElementsByClassName("login-form")[0].reset();
@@ -27,8 +29,13 @@ export const LoginForm = () => {
       alert(res.data.message);
       if (res.data.message === "Login Successful") {
         resetFormFields();
-        setCurrentUser(res.data);
-        sessionStorage.setItem("token", res.data.accessToken);
+        setAuthUser({
+          status: true,
+          username: res.data.username,
+          userId : res.data.userId
+        });
+        localStorage.setItem("token", res.data.accessToken);
+        navigate("/");
       }
     });
   };

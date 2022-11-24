@@ -8,14 +8,18 @@ router.get("/:postId", async(req,res)=>{
     res.json(comments);
 });
 
-// router.post("/", validateToken, async(req,res)=>{
-//     const comment = await Comments.create(req.body);
-//     res.json(comment);
-// });
-
 router.post("/",validateToken, async(req,res)=>{
-    const comment = await Comments.create(req.body);
+    const comment = req.body;
+    const username = req.user.username;
+    comment.username = username;
+    await Comments.create(comment);
     res.json(comment);
+});
+
+router.delete("/:commentId",validateToken, async(req,res)=>{
+    const commentId = req.params.commentId;
+    await Comments.destroy({where:{id:commentId}});
+    res.json({message: "Comment Deleted"});
 });
 
 module.exports = router;

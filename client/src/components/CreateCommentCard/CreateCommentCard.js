@@ -17,9 +17,11 @@ export const CreateCommentCard = (props) => {
     };
     
     axios.post(`http://localhost:3001/comments`, commentObject, {headers :{
-        accessToken: sessionStorage.getItem("token")
+        accessToken: localStorage.getItem("token")
     }}).then((res) => {
-        console.log(res.data);
+        if(res.data.message === "User not Logged in"){
+            alert("User not logged in");
+        }
         resetFormFields();
     });
   };

@@ -8,6 +8,8 @@
         width: 100%;
         border: none;
         padding: 0.5rem;
+        margin: 0.5rem 0;
+        color: #fff;
         border-bottom: 1px solid #ccc;
 
         &:focus{
@@ -19,5 +21,8 @@
 
     .btn{
         width: 50%;
+        margin: 0.5rem 0;
+        color: #fff;
+        text-transform: uppercase;
     }
 }

@@ -8,16 +8,18 @@ import { createContext } from "react";
 import { useState } from "react";
 import { Navbar } from "./components/Navbar/Navbar";
 
-export const UserContext = createContext({
-  currentUser: null,
-});
+export const UserContext = createContext();
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [authUser, setAuthUser] = useState({
+    status : false,
+    username : "",
+    userId : 0,
+  });
 
   return (
     <div className="App">
-      <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+      <UserContext.Provider value={{ authUser, setAuthUser }}>
         <Router>
           <Navbar />
           <Routes>

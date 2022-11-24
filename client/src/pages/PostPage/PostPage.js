@@ -22,6 +22,7 @@ export const PostPage = () => {
       setComments(res.data);
     });
   }, [id]);
+
   return (
     <>
         <div className="post-page-container">
@@ -35,17 +36,23 @@ export const PostPage = () => {
               <CreateCommentCard postId={id} key={postObject.id}/>
             </div>
             <div className="post-comments-container">
-              <h2>Comments</h2>
+              <h2>Comments ({comments.length})</h2>
               <div className="post-comments-holder">
-                {comments.map((comment) => {
-                  return (
-                    <CommentCard
-                      commentText={comment.commentText}
-                      createdAt={comment.createdAt}
-                      key={comment.id}
-                    />
-                  );
-                })}
+                {comments.length ===0 ? (
+                  <p id="no-comments">No comments yet</p>
+                ) : (
+                  (comments.map((comment) => {
+                    return (
+                      <CommentCard
+                        commentText={comment.commentText}
+                        createdAt={comment.createdAt}
+                        username={comment.username}
+                        id={comment.id}
+                        key={comment.id}
+                      />
+                    );
+                  }))
+                )}
               </div>
             </div>
           </div>

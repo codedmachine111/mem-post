@@ -2,8 +2,13 @@ import "./SignUpForm.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 import { Button } from "../../components/Button/Button";
+import { UserContext } from "../../App";
+import { useContext } from "react";
 
 export const SignUpForm = () => {
+
+  const { setAuthUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     document.getElementsByClassName("signup-form")[0].reset();
   };
@@ -12,7 +17,7 @@ export const SignUpForm = () => {
     username: "",
     password: "",
   };
-  const onLoginSubmitHandler = async (values) => {
+  const onSignupSubmitHandler = async (values) => {
     const userObject = {
       username: values.username,
       password: values.password,
@@ -22,14 +27,19 @@ export const SignUpForm = () => {
       alert(res.data.message);
       if (res.data.message === "User Created!") {
         resetFormFields();
-        sessionStorage.setItem("token", res.data.accessToken);
+        localStorage.setItem("token", res.data.accessToken);
+        setAuthUser({
+          status: true,
+          username: res.data.username,
+          userId: res.data.userId,
+        });
       }
     });
   };
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={onLoginSubmitHandler}>
+      <Formik initialValues={initialValues} onSubmit={onSignupSubmitHandler}>
         <Form className="signup-form">
           <Field
             id="signup-input"
@@ -49,7 +59,7 @@ export const SignUpForm = () => {
           <Button
             type="submit"
             title="SIGNUP"
-            onSubmit={onLoginSubmitHandler}
+            onSubmit={onSignupSubmitHandler}
           />
         </Form>
       </Formik>

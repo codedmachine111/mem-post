@@ -10,6 +10,8 @@
   transition: all 0.3s ease-in-out;
   letter-spacing: 1px;
   margin: 0.5rem 0;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .btn:hover {
@@ -20,4 +22,14 @@
 #signout{
   text-transform: uppercase;
   color: #fff;
+}
+
+#comment-delete-btn{
+  border: 1px solid #E50914;
+  color: #E50914;
+
+  &:hover{
+    background-color: #E50914;
+    color: #fff;
+  }
 }

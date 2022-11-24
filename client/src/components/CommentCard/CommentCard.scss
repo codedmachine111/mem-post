@@ -2,35 +2,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     padding: 1rem;
     margin: 1rem 0;
-    width: 80%;
-    border: 1px solid #ccc;
+    width: 100%;
+    border: 1.5px solid #333;
     border-radius: 10px;
-    box-shadow: 0 2px 3px #ccc;
-    background-color: #fff;
+    box-shadow: 0 2px 3px #0f0f0f;
+    background-color: none;
 
     .comment-user-info{
         width: 100%;
         
-        h2{
-            width: 100%;
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 0;
-            text-align: left;
+        #comment-user-name{
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            opacity: 0.7;
         }
     }
     .comment-content{
         width: 100%;
         margin: 0.5rem 0;
         text-align: left;
+        color: #fff;
     }
     .comment-date{
         width: 100%;
-        text-align: right;
+        text-align: left;
         font-size: 0.8rem;
         opacity: 0.6;
+        color: #fff;
     }
 }
