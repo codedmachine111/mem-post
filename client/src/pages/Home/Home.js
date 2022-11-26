@@ -1,24 +1,36 @@
 import "./Home.scss";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { PostCardPreview } from "../../components/PostCardPreview/PostCardPreview";
-import { PostContext, LikedContext } from "../../App";
+import { PostContext, LikedContext, UserContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   const {listOfPosts, setListOfPosts} = useContext(PostContext);
   const {likedPosts, setLikedPosts} = useContext(LikedContext);
+  const {authUser} = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:3001/posts", {headers: {accessToken: localStorage.getItem("token")}}).then((response) => {
-      setListOfPosts(response.data.listOfPosts);
+      if(!localStorage.getItem("token")) {
+        navigate("/auth");
+      }else{
+        setListOfPosts(response.data.listOfPosts);
+      }
     });
   }, []);
 
   useEffect(()=>{
     axios.get("http://localhost:3001/posts", {headers: {accessToken: localStorage.getItem("token")}}).then((response) => {
-      setLikedPosts(response.data.likedPosts.map((likedPost) => {
-        return likedPost.PostId;
-      }));
+      if(!localStorage.getItem("token")) {
+        navigate("/auth");
+      }else{
+        setLikedPosts(response.data.likedPosts.map((likedPost) => {
+          return likedPost.PostId;
+        }));
+      }
     });
   },[]);
 

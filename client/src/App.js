@@ -8,6 +8,7 @@ import { createContext } from "react";
 import { useState } from "react";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Error } from "./pages/Error/Error";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
 export const PostContext = createContext();
@@ -33,10 +34,10 @@ function App() {
             <Router>
               <Navbar />
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/auth" element={<Auth />} />
                 <Route path="/create" element={<CreatePost />} />
                 <Route path="/post/:id" element={<PostPage />} />
-                <Route path="/auth" element={<Auth />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/*" element={<Error />} />
               </Routes>
             </Router>

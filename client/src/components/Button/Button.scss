@@ -33,3 +33,13 @@
     color: #fff;
   }
 }
+
+#delete-post{
+  border: 1px solid #E50914;
+  color: #E50914;
+  width: 30%;
+  &:hover{
+    background-color: #E50914;
+    color: #fff;
+  }
+}
