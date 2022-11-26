@@ -33,21 +33,47 @@
       width: 100%;
       text-align: left;
     }
-    .post-card-preview-username{
-        opacity: 0.5;
-        position: absolute;
-        top: 80%;
-        width: 100%;
-        padding: 0 1rem;
+    .post-card-preview-footer{
+      position: absolute;
+      top: 70%;
+      padding: 0 1rem;
+      width: 100%;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5%;
+
+      #heart-icon{
         color: #fff;
         background: none;
+      }
+      #heart-icon-red{
+        color: #ff0000;
+        background: none;
+      }
+      p{
+        opacity: 0.7;
+        font-size: 0.8rem;
+        width: 100%;
+        color: #fff;
+        background: none;
+      }
     }
   
     &:hover {
       transform: scale(1.02);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     }
+
+    #like-icon{
+      background: none;
+    }
+    #unlike-icon{
+      background: none;
+    }
   }
+
   @media only screen and (max-width: 600px) {
     .post-card-preview-container {
       width: 55%;

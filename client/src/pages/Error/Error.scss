@@ -1,0 +1,30 @@
+.error-container{
+    width: 100%;
+    height: auto;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .error-title{
+        font-size: 4rem;
+        font-weight: 700;
+    }
+    .error-subtitle{
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    #error-image{
+        width: 25%;
+    }
+    .error-redirect{
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-decoration: none;
+
+        a{
+            color: #BA68C8;
+        }
+    }
+}

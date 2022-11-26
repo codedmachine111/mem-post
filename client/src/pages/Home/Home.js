@@ -1,16 +1,26 @@
 import "./Home.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PostCardPreview } from "../../components/PostCardPreview/PostCardPreview";
+import { PostContext, LikedContext } from "../../App";
 
 export const Home = () => {
-  const [listOfPosts, setListOfPosts] = useState([]);
+  const {listOfPosts, setListOfPosts} = useContext(PostContext);
+  const {likedPosts, setLikedPosts} = useContext(LikedContext);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/posts").then((response) => {
-      setListOfPosts(response.data);
+    axios.get("http://localhost:3001/posts", {headers: {accessToken: localStorage.getItem("token")}}).then((response) => {
+      setListOfPosts(response.data.listOfPosts);
     });
   }, []);
+
+  useEffect(()=>{
+    axios.get("http://localhost:3001/posts", {headers: {accessToken: localStorage.getItem("token")}}).then((response) => {
+      setLikedPosts(response.data.likedPosts.map((likedPost) => {
+        return likedPost.PostId;
+      }));
+    });
+  },[]);
 
   const getRandomColor = () => {
     const colors = [
@@ -25,7 +35,7 @@ export const Home = () => {
       "#925C42",
       "#876F6A",
       "#AA595D",
-      "#3F2549",
+      "#3F2549 ",
     ];
     return colors[Math.floor(Math.random() * colors.length)];
   };
@@ -47,11 +57,14 @@ export const Home = () => {
           {listOfPosts.map((post) => {
             return (
               <PostCardPreview
+                postNum={listOfPosts.indexOf(post) + 1}
                 title={post.title}
                 desc={post.postText.slice(0, 60) + "..."}
                 username={post.username}
                 id={post.id}
+                likes={post.Likes.length}
                 key={post.id}
+                className={likedPosts.includes(post.id) ? "unlikeBtn" : "likeBtn"}
                 color={getRandomColor()}
               />
             );
