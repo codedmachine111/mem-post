@@ -27,4 +27,14 @@ router.post("/", validateToken, async(req,res)=>{
     res.json({post: newPost, message: "Post created!"});
 })
 
+router.delete("/:id", validateToken, async(req,res)=>{
+    const post = await Posts.findByPk(req.params.id);
+    if(post.username === req.user.username){
+        await post.destroy();
+        res.json({message: "Post deleted!"});
+    }else{
+        res.json({message: "Cannot delete post!"});
+    }
+})
+
 module.exports = router;
