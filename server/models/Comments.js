@@ -16,16 +16,3 @@ module.exports=((sequelize, DataTypes)=>{
 
     return Comments;
 })
-
-// commentText: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-// },
-// username: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-// },
-// postId: {
-//     type: DataTypes.INTEGER,
-//     allowNull: false,
-// },

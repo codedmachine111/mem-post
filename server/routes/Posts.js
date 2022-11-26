@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const {validateToken} = require("../middleware/AuthMiddleware");
 
 const {Posts} = require('../models');
+const {Likes} = require('../models');
 
-router.get("/", async(req,res)=>{
-    const listOfPosts = await Posts.findAll()
-    res.json(listOfPosts);
+router.get("/", validateToken, async(req,res)=>{
+    const listOfPosts = await Posts.findAll({ include: "Likes" });
+
+    const likedPosts = await Likes.findAll({where: {userId: req.user.id}});
+    res.json({listOfPosts: listOfPosts, likedPosts: likedPosts});
 })
 
 router.get("/byId/:id", async(req,res)=>{
@@ -13,11 +17,14 @@ router.get("/byId/:id", async(req,res)=>{
     res.json(post);
 })
 
-router.post("/", async (req,res)=>{
-    const post = req.body;
+router.post("/", validateToken, async(req,res)=>{
+    const {title, postText} = req.body;
+    const newPost = await Posts.create({
+        title: title,
+        postText: postText,
+        username: req.user.username
+    });
+    res.json({post: newPost, message: "Post created!"});
+})
 
-    await Posts.create(post);
-    
-    res.json(post);
-})  
 module.exports = router;
