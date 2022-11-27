@@ -29,6 +29,7 @@ export const LoginForm = () => {
       alert(res.data.message);
       if (res.data.message === "Login Successful") {
         resetFormFields();
+        console.log(res.data.userId);
         setAuthUser({
           status: true,
           username: res.data.username,

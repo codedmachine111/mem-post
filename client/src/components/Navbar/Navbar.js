@@ -18,21 +18,16 @@ export const Navbar = () => {
 
   useEffect(() => {
     axios.get("http://localhost:3001/auth/verify",{
-      headers:{
-        accessToken: localStorage.getItem("token")
+      headers: {
+        accessToken: localStorage.getItem("token"),
       }
     }).then((res)=>{
       if(res.data.message === "User not Logged in"){
-        setAuthUser({...authUser, status: false});
+        setAuthUser({ status: false, username: "", userId: 0 });
       }else{
-        setAuthUser({
-          status: true,
-          username: res.data.username,
-          userId: res.data.userId,
-        });
+        setAuthUser({ status: true, username: res.data.user.username, userId: res.data.user.id });
       }
     })
-
   }, []);
 
   return (
@@ -67,6 +62,9 @@ export const Navbar = () => {
             </li>
           )}
         </ul>
+        {authUser.status ? (
+            <Link to={`/profile/${authUser.userId}`}><Button title={authUser.username} /></Link>
+        ):(<></>)}
       </div>
     </nav>
   );

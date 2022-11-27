@@ -19,7 +19,6 @@ router.post("/", async (req, res) => {
         username: username,
         password: hash,
       });
-
       res.json({ message: "User Created!" });
     });
   } else {
@@ -50,7 +49,17 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/verify",validateToken, (req,res)=>{
-  res.json(req.user);
+  res.json({user: req.user});
+})
+
+router.get("/info/:id", async(req,res)=>{
+  const id = req.params.id;
+  const user = await Users.findByPk(id, {attributes: {exclude: ['password']}});
+  if(!user){
+    res.json({message: 'User not found'})
+  }else{
+    res.json({user: user});
+  }
 })
 
 module.exports = router;

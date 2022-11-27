@@ -5,10 +5,27 @@ import { PostCardPreview } from "../../components/PostCardPreview/PostCardPrevie
 import { PostContext, LikedContext, UserContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
+
+export const getRandomColor = () => {
+  const colors = [
+    "#FFCC80",
+    "#FEAB91",
+    "#D094DA",
+    "#82DEEB",
+    "#F48EB1",
+    "#19CB8F",
+    "#B423D5",
+    "#925C42",
+    "#876F6A",
+    "#AA595D",
+    "#3F2549 ",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+};
+
 export const Home = () => {
   const {listOfPosts, setListOfPosts} = useContext(PostContext);
   const {likedPosts, setLikedPosts} = useContext(LikedContext);
-  const {authUser} = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -34,32 +51,7 @@ export const Home = () => {
     });
   },[]);
 
-  const getRandomColor = () => {
-    const colors = [
-      "#FFCC80",
-      "#FEAB91",
-      "#E8ED9B",
-      "#D094DA",
-      "#82DEEB",
-      "#F48EB1",
-      "#19CB8F",
-      "#B423D5",
-      "#925C42",
-      "#876F6A",
-      "#AA595D",
-      "#3F2549 ",
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
-
-  // const getRandomColor = () => {
-  //   const letters = "0123456789ABCDEF";
-  //   let color = "#";
-  //   for (let i = 0; i < 6; i++) {
-  //     color += letters[Math.floor(Math.random() * 16)];
-  //   }
-  //   return color;
-  // }
+  
 
   return (
     <div className="home-container">

@@ -4,9 +4,10 @@ import axios from "axios";
 import { Button } from "../../components/Button/Button";
 import { UserContext } from "../../App";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SignUpForm = () => {
-
+  const navigate = useNavigate();
   const { setAuthUser } = useContext(UserContext);
 
   const resetFormFields = () => {
@@ -17,6 +18,7 @@ export const SignUpForm = () => {
     username: "",
     password: "",
   };
+
   const onSignupSubmitHandler = async (values) => {
     const userObject = {
       username: values.username,
@@ -24,15 +26,9 @@ export const SignUpForm = () => {
     };
 
     axios.post(`http://localhost:3001/auth/`, userObject).then((res) => {
-      alert(res.data.message);
       if (res.data.message === "User Created!") {
+        alert(res.data.message);
         resetFormFields();
-        localStorage.setItem("token", res.data.accessToken);
-        setAuthUser({
-          status: true,
-          username: res.data.username,
-          userId: res.data.userId,
-        });
       }
     });
   };

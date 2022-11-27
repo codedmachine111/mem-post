@@ -40,3 +40,15 @@
     padding: 1rem;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .home-container {
+    flex-direction: column;
+    .posts-section{
+      width: 100%;
+    }
+    .side-article{
+      display: none;
+    }
+  }
+}

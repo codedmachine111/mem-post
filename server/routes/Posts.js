@@ -17,12 +17,18 @@ router.get("/byId/:id", async(req,res)=>{
     res.json(post);
 })
 
+router.get("/byUserId/:id", async(req,res)=>{
+    const listOfPosts = await Posts.findAll({where: {userId: req.params.id}});
+    res.json({listOfPosts: listOfPosts});
+})
+
 router.post("/", validateToken, async(req,res)=>{
     const {title, postText} = req.body;
     const newPost = await Posts.create({
         title: title,
         postText: postText,
-        username: req.user.username
+        username: req.user.username,
+        UserId: req.user.id
     });
     res.json({post: newPost, message: "Post created!"});
 })
@@ -36,5 +42,6 @@ router.delete("/:id", validateToken, async(req,res)=>{
         res.json({message: "Cannot delete post!"});
     }
 })
+
 
 module.exports = router;

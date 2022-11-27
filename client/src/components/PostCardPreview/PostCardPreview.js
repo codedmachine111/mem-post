@@ -4,7 +4,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { PostContext, LikedContext } from "../../App";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export const PostCardPreview = (props) => {
   const navigate = useNavigate();
@@ -40,12 +40,14 @@ export const PostCardPreview = (props) => {
             }
           })
         );
-        if(likedPosts.includes(props.id)){
-            setLikedPosts(likedPosts.filter((id) => {
-                return id !== props.id;
-            }));
-        } else{
-            setLikedPosts([...likedPosts, props.id]);
+        if (likedPosts.includes(props.id)) {
+          setLikedPosts(
+            likedPosts.filter((id) => {
+              return id !== props.id;
+            })
+          );
+        } else {
+          setLikedPosts([...likedPosts, props.id]);
         }
       });
   };
@@ -64,12 +66,16 @@ export const PostCardPreview = (props) => {
       <p className="post-card-preview-desc">{props.desc}</p>
       <div className="post-card-preview-footer">
         <p>{props.username}</p>
-        {props.className === "likeBtn" ? (
-          <FavoriteBorderIcon onClick={onLikeHandler} id="heart-icon"/>
-        ):(
-          <FavoriteIcon onClick={onLikeHandler} id="heart-icon-red"/>
-        )}
-        <p>{props.likes}</p>
+        {props.like ? (
+          <div className="post-card-likes">
+          {props.className === "likeBtn" ? (
+            <FavoriteBorderIcon onClick={onLikeHandler} id="heart-icon" />
+          ) : (
+            <FavoriteIcon onClick={onLikeHandler} id="heart-icon-red" />
+          )}
+          <p>{props.likes}</p>
+        </div>
+        ):(<></>)}
       </div>
     </div>
   );

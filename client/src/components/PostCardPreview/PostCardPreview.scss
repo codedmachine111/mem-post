@@ -23,7 +23,6 @@
       background: none;
       text-transform: capitalize;
       text-align: left;
-      font-family: "DM Sans", sans-serif;
     }
     .post-card-preview-desc {
       font-size: 0.9rem;
@@ -44,6 +43,18 @@
       align-items: center;
       gap: 5%;
 
+      .post-card-likes{
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6%;
+        background: none;
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.25);
+      }
       #heart-icon{
         color: #fff;
         background: none;
@@ -53,7 +64,7 @@
         background: none;
       }
       p{
-        opacity: 0.7;
+        opacity: 0.9;
         font-size: 0.8rem;
         width: 100%;
         color: #fff;
@@ -76,7 +87,8 @@
 
   @media only screen and (max-width: 600px) {
     .post-card-preview-container {
-      width: 55%;
+      width: 40%;
+      min-height: 30vh;
       margin: 0.5rem 0;
     }
   } 
