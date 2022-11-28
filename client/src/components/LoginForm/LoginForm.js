@@ -29,14 +29,13 @@ export const LoginForm = () => {
       alert(res.data.message);
       if (res.data.message === "Login Successful") {
         resetFormFields();
-        console.log(res.data.userId);
         setAuthUser({
           status: true,
           username: res.data.username,
           userId : res.data.userId
         });
         localStorage.setItem("token", res.data.accessToken);
-        navigate("/");
+        navigate("/posts");
       }
     });
   };
@@ -45,6 +44,8 @@ export const LoginForm = () => {
     <>
       <Formik initialValues={initialValues} onSubmit={onLoginSubmitHandler}>
         <Form className="login-form">
+          <h2>Stories</h2>
+          <p>Login to enter the application and share your stories</p>
           <Field
             id="login-input"
             name="username"
@@ -55,7 +56,7 @@ export const LoginForm = () => {
           <Field
             id="login-input"
             name="password"
-            type="text"
+            type="password"
             placeholder="password"
           />
           <ErrorMessage name="password" />

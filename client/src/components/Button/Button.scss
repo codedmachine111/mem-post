@@ -9,6 +9,7 @@
   border: 1px solid #BA68C8;
   transition: all 0.3s ease-in-out;
   letter-spacing: 1px;
+  text-decoration: none;
   margin: 0.5rem 0;
   color: #fff;
   text-transform: uppercase;
@@ -40,6 +41,20 @@
   width: 30%;
   &:hover{
     background-color: #E50914;
+    color: #fff;
+  }
+}
+
+#profile-btn{
+  border: 1px solid #BA68C8;
+  color: #BA68C8;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-decoration: none;
+  &:hover{
+    background-color: #BA68C8;
     color: #fff;
   }
 }

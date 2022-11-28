@@ -3,9 +3,12 @@ import "./CommentCard.scss";
 import { UserContext } from "../../App";
 import { useContext } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const CommentCard = (props) => {
   const { authUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const onDeleteHandler = ()=>{
     axios.delete(`http://localhost:3001/comments/${props.id}`,{
@@ -14,7 +17,7 @@ export const CommentCard = (props) => {
         }
     }).then((res)=>{
       alert(res.data.message);
-      window.location.reload();
+      // navigate("/posts");
     });
   }
 

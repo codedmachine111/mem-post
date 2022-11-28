@@ -1,0 +1,43 @@
+.home-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    color: #fff;
+    background: #1b1b1b;;
+    padding: 1rem 2rem;
+    
+    .home-content{
+        width: 40%;
+        display: flex;
+        padding: 1rem;
+        flex-direction: row; 
+        justify-content: right;
+
+        #mobile-app{
+            width: 60%;
+        }
+    }
+    .home-timer-container{
+        width: 40%;
+        height: 100vh;
+        padding: 5rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: left;
+
+    }
+    #diff{
+        color: #BA68C8;
+        background-image: linear-gradient(45deg, #fff,#BA68C8);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        transition: 0.3s ease-in-out;
+    }
+    #home-logo{
+        width: 80%;
+    }
+}

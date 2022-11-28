@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes)=>{
         postText: {
             type: DataTypes.STRING,
             allowNull: false,
+            
         },
         username: {
             type: DataTypes.STRING,

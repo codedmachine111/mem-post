@@ -1,22 +1,46 @@
-.user-card-container{
-    width: 40%;
-    height: 100%;
+.user-card-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  padding: 1rem;
+  background: linear-gradient(
+    118.13deg,
+    #26282a -9.55%,
+    rgba(45, 48, 54, 0) 106.05%
+  );
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  .user-card-info {
+    background: none;
+  }
+  .user-card-title {
+    background: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .user-card-joined-info {
+    font-size: 1rem;
+    background: none;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .user-share-buttons{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    padding: 1rem;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-    color: #fff;
+    gap: 5%;
+    background: none;
 
-    .user-card-title{
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
+    button{
+      svg{
+        background: none;
+      }
     }
-    .user-card-joined-info{
-        font-size: 1rem;
-        font-weight: 400;
-        margin-bottom: 1rem;
-    }
+  }
 }

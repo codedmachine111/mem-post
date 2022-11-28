@@ -35,4 +35,20 @@
       opacity: 0.5;
     }
   }
+  .post-share-buttons{
+    width: 20%;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    background: none;
+
+    button{
+      svg{
+        background: none;
+      }
+    }
+  }
 }

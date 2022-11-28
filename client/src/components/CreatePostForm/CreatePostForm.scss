@@ -1,16 +1,32 @@
 .create-post-form{
-    width: 50%;
-    border: 2px solid #1b1b1b;
+    width: 60%;
+    border: 2px solid #BA68C8;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem 0;
     
-    #input-create-post{
-        width: 100%;
+    #input-create-post, #input-create-post-text{
+        width: 85%;
         padding: 0.5rem;
+        font-size: 1rem;
         border:none;
         border-bottom: 1px solid #ccc;
         resize: none;
         margin: 1rem 0;
         color: #fff;
         outline: none;
+        border: 0.5px solid  #BA68C8;
+        border-radius: 10px;
+
+        &:focus{
+            border: none;
+            border-bottom: 0.5px solid  #BA68C8;
+            border-radius: 0px;
+            transition: 0.5s ease;
+        }
+    }
+    #input-create-post-text{
+        height: 15rem;
     }
     .btn{
         width: 50%;

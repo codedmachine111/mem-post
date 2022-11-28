@@ -20,6 +20,10 @@ nav {
     color: #fff;
   }
   
+  #logo-icon{
+    font-size: 3.5rem;
+    color: #BA68C8;
+  }
   .nav-menu {
     width: 30%;
     display: flex;
@@ -62,24 +66,17 @@ nav {
       }
     }
   }
-  
+  a{
+    text-decoration: none;
+  }
   #homeli {
     color: #92e3a9;
     background-color: rgba(0, 0, 0, 0);
   }
   
   .logo {
-    width: 10%;
-    padding: 1.4rem;
-  }
-  
-  .logo-img {
-    width: 100%;
-    transform: rotate3d(10, 10, 10, -20deg);
-  }
-  
-  .logo a span {
-    color: #92e3a9;
+    width: 20%;
+    padding: 0 1rem;
   }
   
   .checkbtn {

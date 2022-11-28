@@ -1,2 +1,2 @@
-# mem-post
-A fullstack web application to post a memory.
+# Stories
+A fullstack web application to post a a picture that tells a story.

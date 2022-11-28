@@ -38,7 +38,7 @@ export const CreatePostForm = () => {
         if(response.data.message === "Post created!"){
             alert("Post created!");
             resetFormFields();
-            navigate("/");
+            navigate("/posts");
         }else{
             alert("Something went wrong!");
         }
@@ -55,10 +55,10 @@ export const CreatePostForm = () => {
           <Field id="input-create-post" name="title" placeholder="Post Title" />
           <ErrorMessage name="title" component="span" className="error" />
           <Field
-            id="input-create-post"
+            id="input-create-post-text"
             name="postText"
             placeholder="What's happening?"
-            type="textarea"
+            as="textarea"
           />
           <ErrorMessage name="title" component="span" className="error" />
 

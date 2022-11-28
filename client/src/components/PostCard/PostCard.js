@@ -4,7 +4,8 @@ import { useContext } from "react";
 import { UserContext } from "../../App";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
- 
+import {WhatsappIcon, WhatsappShareButton, TwitterShareButton, TwitterIcon} from "react-share";
+
 export const PostCard = ({ post }) => {
   const { title, postText, username, createdAt, id } = post;
   const date = createdAt ? new Date(createdAt).toDateString() : null;
@@ -38,6 +39,14 @@ export const PostCard = ({ post }) => {
         <div className="post-card-footer">
           <p className="post-card-author">{username}-({date})</p>
         </div>
+        <div className='post-share-buttons'>
+                    <WhatsappShareButton url={`https://localhost:3000/post/${id}`} title={`Hey there! Check out my profile on Stories. A web-app where you share a picture with a memory.`} id="share-btn">
+                        <WhatsappIcon size={32} round={true} />
+                    </WhatsappShareButton>
+                    <TwitterShareButton url={`https://localhost:3000/post/${id}`} title={`Hey there! Check out my profile on Stories. A web-app where you share a picture with a memory.`}>
+                        <TwitterIcon size={32} round={true} />
+                    </TwitterShareButton>
+                </div>
         {authUser.username === username ? (
           <Button title="delete" id="delete-post" onClick={()=>onDeleteHandler()}/>
         ):(<></>)}

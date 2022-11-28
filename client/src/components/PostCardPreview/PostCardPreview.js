@@ -55,13 +55,11 @@ export const PostCardPreview = (props) => {
   return (
     <div
       className="post-card-preview-container"
-      style={{ background: props.color }}
-    >
+      style={{ background: props.color }} onClick={() => navigate(`/post/${props.id}`)}>
       <h2
         className="post-card-preview-title"
-        onClick={() => navigate(`/post/${props.id}`)}
       >
-        {props.postNum}. {props.title}
+        {props.title}
       </h2>
       <p className="post-card-preview-desc">{props.desc}</p>
       <div className="post-card-preview-footer">
@@ -71,7 +69,7 @@ export const PostCardPreview = (props) => {
           {props.className === "likeBtn" ? (
             <FavoriteBorderIcon onClick={onLikeHandler} id="heart-icon" />
           ) : (
-            <FavoriteIcon onClick={onLikeHandler} id="heart-icon-red" />
+            <FavoriteIcon onClick={onLikeHandler} id="heart-icon-fill" />
           )}
           <p>{props.likes}</p>
         </div>

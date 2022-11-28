@@ -5,6 +5,8 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCameraRetro } from "@fortawesome/free-solid-svg-icons"
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ export const Navbar = () => {
   const onSignoutHandler = () => {
     localStorage.removeItem("token");
     setAuthUser({ status: false, username: "", userId: 0 });
-    navigate("/auth");
+    navigate("/");
   };
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export const Navbar = () => {
   return (
     <nav>
       <div className="logo">
-        <img src="" alt="" className="logo-img" />
+      <FontAwesomeIcon icon={faCameraRetro} id="logo-icon"/>
       </div>
 
       <div className="nav-menu">
@@ -43,7 +45,7 @@ export const Navbar = () => {
         </label>
         <ul className="list">
           <li id="active">
-            <Link to="/">Home</Link>
+            <Link to="/posts">Home</Link>
           </li>
           <li>
             <Link to="/create" id="d">
@@ -63,7 +65,7 @@ export const Navbar = () => {
           )}
         </ul>
         {authUser.status ? (
-            <Link to={`/profile/${authUser.userId}`}><Button title={authUser.username} /></Link>
+            <Link to={`/profile/${authUser.userId}`}><Button title={authUser.username.charAt(0)} id="profile-btn"/></Link>
         ):(<></>)}
       </div>
     </nav>

@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
-  min-height: 85vh;
+  min-height: 85vh; 
   padding: 1rem 2rem;
   gap: 5%;
 
@@ -18,25 +18,27 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100%;
-    padding: 1rem 2rem;
-    
-    h2{
+    min-height: 85vh;
+    height: auto;
+    padding: 3rem 2rem;
+
+    h2 {
       font-size: 1.5rem;
       font-weight: 600;
       color: #fff;
     }
     .post-comments-container {
       width: 100%;
-      height: 50vh;
-      h2{
+      height: auto;
+      
+      h2 {
         font-size: 1.5rem;
         font-weight: 600;
         color: #fff;
       }
-      .post-comments-holder{
+      .post-comments-holder {
         width: 100%;
-        height: 100%;
+        height: 50vh;
         padding: 1rem 2rem;
         display: flex;
         flex-direction: column;
@@ -46,7 +48,7 @@
         overflow: scroll;
       }
     }
-    .post-create-comment-section{
+    .post-create-comment-section {
       width: 90%;
       height: 100%;
       padding: 1rem;
@@ -57,11 +59,11 @@
       border-radius: 10px;
       border: 2px solid #ccc;
 
-      h2{
+      h2 {
         padding: 0 0.5rem;
       }
     }
-    #no-comments{
+    #no-comments {
       width: 100%;
       color: #fff;
       font-size: 1.4rem;
