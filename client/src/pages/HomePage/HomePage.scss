@@ -22,12 +22,16 @@
         }
     }
     .home-timer-container{
-        width: 40%;
+        width: 50%;
         height: 100vh;
         padding: 5rem 0;
         display: flex;
         justify-content: center;
         align-items: left;
+
+        form{
+            width: 60%;
+        }
 
     }
     #diff{

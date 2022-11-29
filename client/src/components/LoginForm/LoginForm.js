@@ -4,9 +4,9 @@ import axios from "axios";
 import { Button } from "../../components/Button/Button";
 import { UserContext } from "../../App";
 import { useContext } from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
 
-export const LoginForm = () => {
+export const LoginForm = (props) => {
 
   const { setAuthUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ export const LoginForm = () => {
     };
 
     axios.post(`http://localhost:3001/auth/login`, userObject).then((res) => {
-      alert(res.data.message);
       if (res.data.message === "Login Successful") {
         resetFormFields();
         setAuthUser({
@@ -36,6 +35,8 @@ export const LoginForm = () => {
         });
         localStorage.setItem("token", res.data.accessToken);
         navigate("/posts");
+      }else{
+        alert(res.data.message);
       }
     });
   };
@@ -45,23 +46,25 @@ export const LoginForm = () => {
       <Formik initialValues={initialValues} onSubmit={onLoginSubmitHandler}>
         <Form className="login-form">
           <h2>Stories</h2>
-          <p>Login to enter the application and share your stories</p>
+          <p><span id="bold">Login</span> to enter and share your stories with your friends.</p>
           <Field
             id="login-input"
             name="username"
             type="text"
-            placeholder="username"
+            placeholder="Username"
           />
           <ErrorMessage name="username" />
           <Field
             id="login-input"
             name="password"
             type="password"
-            placeholder="password"
+            placeholder="Password"
           />
           <ErrorMessage name="password" />
 
           <Button type="submit" title="LOGIN" onSubmit={onLoginSubmitHandler} />
+
+          <p id="auth-redirect">Don't have an account? <Link to="/auth" onClick={()=> props.toggleAuth()}>Signup</Link></p>
         </Form>
       </Formik>
     </>

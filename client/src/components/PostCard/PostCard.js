@@ -40,10 +40,10 @@ export const PostCard = ({ post }) => {
           <p className="post-card-author">{username}-({date})</p>
         </div>
         <div className='post-share-buttons'>
-                    <WhatsappShareButton url={`https://localhost:3000/post/${id}`} title={`Hey there! Check out my profile on Stories. A web-app where you share a picture with a memory.`} id="share-btn">
+                    <WhatsappShareButton url={`https://localhost:3000/post/${id}`} title={`Hey there! Check out my post on Stories. A web-app where you share a picture with a memory.`} id="share-btn">
                         <WhatsappIcon size={32} round={true} />
                     </WhatsappShareButton>
-                    <TwitterShareButton url={`https://localhost:3000/post/${id}`} title={`Hey there! Check out my profile on Stories. A web-app where you share a picture with a memory.`}>
+                    <TwitterShareButton url={`https://localhost:3000/post/${id}`} title={`Hey there! Check out my post on Stories. A web-app where you share a picture with a memory.`}>
                         <TwitterIcon size={32} round={true} />
                     </TwitterShareButton>
                 </div>

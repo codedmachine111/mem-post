@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { UserCard } from "../../components/UserCard/UserCard";
 import "./Profile.scss";
 import axios from "axios";
@@ -46,20 +46,27 @@ export const Profile = () => {
             <span id="diff">{user.username}</span>'s Posts
           </h2>
           <div className="profile-user-posts-container">
-            {userPosts.map((post) => {
-              return (
-                <PostCardPreview
-                postNum={userPosts.indexOf(post) + 1}
-                title={post.title.length > 15 ? post.title.slice(0, 15) + "..." : post.title}
-                desc={post.postText.slice(0, 60) + "..."}
-                username={post.username}
-                id={post.id}
-                key={post.id}
-                like={false}
-                color={getRandomColor()}
-                />
-              );
-            })}
+            {userPosts.length > 0 ? (
+              userPosts.map((post) => {
+                return (
+                  <PostCardPreview
+                  postNum={userPosts.indexOf(post) + 1}
+                  title={post.title.length > 15 ? post.title.slice(0, 15) + "..." : post.title}
+                  desc={post.postText.slice(0, 60) + "..."}
+                  username={post.username}
+                  id={post.id}
+                  key={post.id}
+                  like={false}
+                  color={getRandomColor()}
+                  />
+                );
+              })
+            ):(
+              <div className="no-posts">
+                <h2>No posts yet</h2>
+                <Link to="/create">Create one!</Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
