@@ -17,7 +17,7 @@ export const CommentCard = (props) => {
         }
     }).then((res)=>{
       alert(res.data.message);
-      // navigate("/posts");
+      navigate("/posts");
     });
   }
 

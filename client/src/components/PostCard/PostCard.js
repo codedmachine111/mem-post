@@ -21,7 +21,7 @@ export const PostCard = ({ post }) => {
     }).then((res)=>{
       if(res.data.message==="Post deleted!"){
         alert(res.data.message);
-        navigate("/");
+        navigate("/posts");
       }else{
         alert(res.data.message);
       }
