@@ -1,6 +1,6 @@
 import "./PostCard.scss";
 import { Button } from "../Button/Button";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -10,8 +10,15 @@ export const PostCard = ({ post }) => {
   const { title, postText, username, createdAt, id } = post;
   const date = createdAt ? new Date(createdAt).toDateString() : null;
   const {authUser} = useContext(UserContext);
+  const [image, setImage] = useState(null);
 
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    axios.get(`http://localhost:3001/posts/image/${id}`,{responseType: 'blob'}).then((res)=>{
+      setImage(res.data);
+    })
+  },[id])
 
   const onDeleteHandler =()=>{
     axios.delete(`http://localhost:3001/posts/${id}`, {
@@ -32,6 +39,9 @@ export const PostCard = ({ post }) => {
       <div className="post-card-container">
         <div className="post-card-title">
           <h1>{title}</h1>
+        </div>
+        <div className="post-card-image">
+          <img src={image ? URL.createObjectURL(image) : null} alt="post" id="post-card-image-img" />
         </div>
         <div className="post-card-body">
           <p>{postText}</p>

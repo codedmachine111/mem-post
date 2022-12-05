@@ -28,3 +28,24 @@
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    .error-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        .error-title{
+            font-size: 2rem;
+        }
+        .error-subtitle{
+            font-size: 0.8rem;
+        }
+        #error-image{
+            width: 50%;
+        }
+        .error-redirect{
+            font-size: 1rem;
+        }
+    }
+}

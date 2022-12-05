@@ -68,24 +68,28 @@ export const Posts = () => {
         <div className="posts-section">
           <h2 className="posts-section-title">New stories</h2>
           <div className="posts-container">
-            {listOfPosts.map((post) => {
-              return (
-                <PostCardPreview
-                  postNum={listOfPosts.indexOf(post) + 1}
-                  title={post.title}
-                  desc={post.postText.slice(0, 60) + "..."}
-                  username={post.username}
-                  id={post.id}
-                  likes={post.Likes.length}
-                  key={post.id}
-                  like={true}
-                  className={
-                    likedPosts.includes(post.id) ? "unlikeBtn" : "likeBtn"
-                  }
-                  color={getRandomColor()}
-                />
-              );
-            })}
+            {listOfPosts.length > 0 ? (
+              listOfPosts.map((post) => {
+                return (
+                  <PostCardPreview
+                    postNum={listOfPosts.indexOf(post) + 1}
+                    title={post.title}
+                    desc={post.postText.slice(0, 60) + "..."}
+                    username={post.username}
+                    id={post.id}
+                    likes={post.Likes.length}
+                    key={post.id}
+                    like={true}
+                    className={
+                      likedPosts.includes(post.id) ? "unlikeBtn" : "likeBtn"
+                    }
+                    color={getRandomColor()}
+                  />
+                );
+              })
+            ) : (
+              <h1 className="empty-posts-title">No stories posted yet!</h1>
+            )}
           </div>
         </div>
 

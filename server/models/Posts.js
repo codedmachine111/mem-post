@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes)=>{
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
     })
 
     Posts.associate = (models)=>{
@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes)=>{
         });
 
         Posts.hasMany(models.Likes,{
+            onDelete: "cascade"
+        });
+
+        Posts.hasMany(models.Images,{
             onDelete: "cascade"
         });
     }
